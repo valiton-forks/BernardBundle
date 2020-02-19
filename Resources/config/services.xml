@@ -5,6 +5,9 @@
 
     <services>
 
+        <!-- this makes public all the services defined in this file -->
+        <defaults public="true" />
+
         <service id="bernard.router" class="Bernard\Router\ContainerAwareRouter">
             <argument type="service" id="service_container" />
             <argument type="collection" /><!-- Receivers -->
@@ -110,6 +113,10 @@
 
         <service id="bernard.driver.pheanstalk" class="Bernard\Driver\PheanstalkDriver" public="false">
             <argument /><!-- Pheanstalk connection -->
+        </service>
+
+        <service id="bernard.bernard_bundle.command.debug_command" class="Bernard\BernardBundle\Command\DebugCommand">
+            <tag name="console.command"/>
         </service>
 
     </services>
